@@ -1,5 +1,7 @@
 <?php
 require_once "config/db.php";
+require_once "config/auth.php";
+requireLogin();
 
 if (!isset($_GET['id'])) {
     die("Recipe ID is missing.");

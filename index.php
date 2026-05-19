@@ -1,5 +1,7 @@
 <?php
 require_once "config/db.php";
+require_once "config/auth.php";
+requireLogin();
 
 $stmt = $pdo->prepare("SELECT id, title, image_url FROM recipes");
 $stmt->execute();
@@ -23,13 +25,16 @@ $recipes = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
         <div class="nav-links" id="navLinks">
             <a href="index.php">Početna</a>
+            <?php if (isLoggedIn()): ?>
+                <a href="logout.php">Logout</a>
+            <?php else: ?>
+                <a href="login.php">Login</a>
+            <?php endif; ?>
         </div>
     </nav>
 
     <main class="container">
-
-        <h1 class="page-title">What are we cooking today?</h1>
-
+        <h1 class="page-title">Hello, Chef <?= $_SESSION["username"] ?>! What are we cooking today?</h1>
         <div class="grid">
             <?php foreach ($recipes as $recipe): ?>
                 <a class="card" href="recipe.php?id=<?= $recipe['id'] ?>">
