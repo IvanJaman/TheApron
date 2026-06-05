@@ -9,7 +9,7 @@ function isLoggedIn() {
 
 function requireLogin() {
     if (!isLoggedIn()) {
-        header("Location: /TheApron/api/auth/login.php");
+        header("Location: /TheApron/login.php");
         exit;
     }
 }

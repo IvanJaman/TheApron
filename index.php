@@ -34,7 +34,7 @@ $recipes = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </nav>
 
     <main class="container">
-        <h1 class="page-title">Hello, Chef <?= $_SESSION["username"] ?>! What are we cooking today?</h1>
+        <h1 class="page-title">Pozdrav, chef <?= $_SESSION["username"] ?>! Što ćemo kuhati danas?</h1>
         <div class="grid">
             <?php foreach ($recipes as $recipe): ?>
                 <a class="card" href="recipe.php?id=<?= $recipe['id'] ?>">

@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXISTS thapron;
+CREATE DATABASE IF NOT EXISTS theapron;
 USE theapron;
 
 CREATE TABLE users (
@@ -49,84 +49,108 @@ CREATE TABLE ratings (
 );
 
 INSERT INTO categories (name) VALUES
-('Pasta'),
+('Tjestenina'),
 ('Pizza'),
-('Breakfast'),
-('Dessert'),
-('Salad'),
-('Soup');
+('Doručak'),
+('Desert'),
+('Salata'),
+('Juha');
 
 INSERT INTO recipes (title, description, ingredients, instructions, image_url, category_id) VALUES
-('Spaghetti Carbonara',
-'Classic Italian pasta dish with eggs, cheese and pancetta.',
-'Spaghetti, eggs, parmesan, pancetta, black pepper',
-'Cook pasta. Fry pancetta. Mix eggs and cheese. Combine everything off heat.',
+
+('Špageti Carbonara',
+'Klasično rimsko jelo od tjestenine s kremastim umakom od jaja, hrskavom pancetom i svježe ribanim Pecorino sirom. Jednostavni sastojci, bogat okus i bez vrhnja.',
+'Špageti, jaja (2 velika), Pecorino Romano sir, panceta, crni papar, sol',
+'Skuhaj špagete u posoljenoj vodi do al dente. Na tavi poprži pancetu dok ne postane hrskava. U zdjeli umutiti jaja sa sirom i paprom. Ocijedi tjesteninu, sačuvaj malo vode, i brzo pomiješaj s pancetom maknuto s vatre. Dodaj smjesu jaja i miješaj energično dok se ne stvori kremasti umak. Po potrebi dodaj vodu od tjestenine.',
+
 '/images/carbonara.jpg',
 1),
-('Margherita Pizza',
-'Simple pizza with tomato, mozzarella and basil.',
-'Dough, tomato sauce, mozzarella, basil',
-'Spread sauce, add cheese, bake at high temp, add basil.',
+
+('Pizza Margherita',
+'Tradicionalna napuljska pizza sa svježim umakom od rajčice, mozzarellom i bosiljkom. Savršena ravnoteža jednostavnosti i okusa.',
+'Tijesto za pizzu, umak od rajčice, svježa mozzarella, svježi bosiljak, maslinovo ulje, sol',
+'Razvuci tijesto u krug. Ravnomjerno rasporedi umak od rajčice. Dodaj narezanu mozzarellu. Peci na visokoj temperaturi (250°C+) dok korica ne postane zlatna. Dodaj svježi bosiljak i pokapaj maslinovo ulje prije posluživanja.',
+
 '/images/margherita.jpg',
 2),
-('Pancakes',
-'Fluffy breakfast pancakes.',
-'Flour, milk, eggs, sugar, baking powder',
-'Mix ingredients, cook on pan until golden.',
+
+('Palačinke',
+'Mekane i pahuljaste palačinke savršene za doručak ili brunch, poslužene s medom, voćem ili maslacem.',
+'Brašno, mlijeko, jaja, šećer, prašak za pecivo, sol, maslac',
+'Pomiješaj suhe sastojke u jednoj zdjeli, a mokre u drugoj. Spoji smjese do glatke teksture. Zagrij tavu s maslacem i ulij tijesto u krugove. Peci dok se ne pojave mjehurići, okreni i peci do zlatne boje. Poslužiti toplo.',
+
 '/images/pancakes.jpg',
 3),
-('Chocolate Cake',
-'Rich and moist chocolate cake.',
-'Flour, cocoa, eggs, sugar, butter',
-'Mix, bake, cool, add frosting.',
+
+('Čokoladna torta',
+'Bogata i sočna čokoladna torta intenzivnog okusa kakaa, savršena za proslave i desertne trenutke.',
+'Brašno, kakao prah, šećer, jaja, maslac, prašak za pecivo, mlijeko, vanilija',
+'Pomiješaj suhe sastojke odvojeno od mokrih, zatim ih spoji. Ulij u kalup i peci na 180°C oko 30–35 minuta. Ohladi prije dodavanja glazure ili posluživanja.',
+
 '/images/chocolate_cake.jpg',
 4),
-('Caesar Salad',
-'Fresh salad with creamy dressing.',
-'Lettuce, chicken, parmesan, croutons, dressing',
-'Mix all ingredients and serve cold.',
+
+('Cezar salata',
+'Krispna rimska salata s kremastim Cezar dresingom, hrskavim krutonima i parmezanom.',
+'Rimska salata, pileća prsa, parmezan, krutoni, Cezar dresing, maslinovo ulje',
+'Ispeci piletinu i nareži je. Operi i nasjeckaj salatu. Pomiješaj salatu s dresingom, dodaj krutone i parmezan. Na vrh stavi piletinu i posluži odmah.',
+
 '/images/caesar_salad.jpg',
 5),
-('Tomato Soup',
-'Simple homemade tomato soup.',
-'Tomatoes, onion, garlic, broth',
-'Cook ingredients, blend, simmer.',
+
+('Juha od rajčice',
+'Kremasta domaća juha od rajčice s češnjakom i aromatičnim biljem.',
+'Rajčice, luk, češnjak, povrtni temeljac, maslinovo ulje, sol, papar, bosiljak',
+'Na maslinovom ulju pirjaj luk i češnjak. Dodaj rajčice i kuhaj dok ne omekšaju. Ulij temeljac i kuhaj 20 minuta. Izblendaj i začini po ukusu. Poslužiti toplo.',
+
 '/images/tomato_soup.jpg',
 6),
-('Beef Burger',
-'Juicy homemade burger.',
-'Beef patty, bun, cheese, lettuce, tomato',
-'Grill patty, assemble burger.',
+
+('Hamburger',
+'Sočni domaći hamburger s topljenim sirom i svježim povrćem u tostiranoj lepinji.',
+'Mljevena govedina, peciva za hamburger, sir, salata, rajčica, luk, sol, papar, kečap',
+'Oblikuj pljeskavice i začini. Ispeci ih na roštilju. Lagano tostiraj peciva. Složi burger sa sirom, salatom, rajčicom, lukom i umacima.',
+
 '/images/burger.jpg',
 2),
-('French Toast',
-'Sweet breakfast toast.',
-'Bread, eggs, milk, cinnamon, sugar',
-'Dip bread in mix, fry until golden.',
+
+('Pohani kruh',
+'Slatko jelo od kruha namočenog u jaja i mlijeko, zatim prženog do zlatne boje.',
+'Kruh, jaja, mlijeko, cimet, šećer, maslac, vanilija',
+'Umuti jaja, mlijeko, cimet, šećer i vaniliju. Umoči kruh u smjesu. Prži na maslacu do zlatno-smeđe boje. Poslužiti s medom ili voćem.',
+
 '/images/french_toast.jpg',
 3),
-('Lasagna',
-'Layered pasta with meat and cheese.',
-'Lasagna sheets, beef, tomato sauce, cheese',
-'Layer ingredients and bake.',
+
+('Lazanje',
+'Slojevito talijansko jelo s bogatim mesnim umakom, bešamelom i sirom.',
+'Listovi za lazanje, mljevena govedina, umak od rajčice, luk, češnjak, bešamel, mozzarella, parmezan',
+'Kuhaj meso s lukom i češnjakom, dodaj umak od rajčice i kuhaj. U posudi slaži slojeve tjestenine, mesa, bešamela i sira. Ponavljaj. Peci na 180°C 40 minuta.',
+
 '/images/lasagna.jpg',
 1),
-('Apple Pie',
-'Classic baked apple dessert.',
-'Apples, flour, butter, sugar',
-'Prepare crust, fill apples, bake.',
+
+('Pita od jabuka',
+'Klasična domaća pita od jabuka s prhkim tijestom i cimetom aromatiziranim punjenjem.',
+'Jabuke, brašno, maslac, šećer, cimet, limunov sok, sol',
+'Pripremi tijesto i ohladi. Nareži jabuke i pomiješaj sa šećerom, cimetom i limunom. Napuni koru, poklopi i peci na 180°C 45–50 minuta.',
+
 '/images/apple_pie.jpg',
 4),
-('Greek Salad',
-'Fresh Mediterranean salad.',
-'Tomatoes, cucumber, olives, feta',
-'Mix all ingredients.',
+
+('Grčka salata',
+'Svježa mediteranska salata s maslinama, fetom i hrskavim povrćem.',
+'Rajčice, krastavac, crveni luk, masline, feta sir, maslinovo ulje, origano, sol',
+'Nareži povrće i pomiješaj u zdjeli. Dodaj masline i fetu. Pokapaj maslinovim uljem i pospi origanom. Lagano promiješaj.',
+
 '/images/greek_salad.jpg',
 5),
-('Minestrone Soup',
-'Italian vegetable soup.',
-'Beans, pasta, vegetables, broth',
-'Cook everything together until soft.',
+
+('Minestrone juha',
+'Bogata talijanska juha s povrćem, grahom i tjesteninom.',
+'Grah, tjestenina, mrkva, celer, luk, češnjak, rajčica, povrtni temeljac, maslinovo ulje',
+'Pirjaj luk, češnjak, mrkvu i celer. Dodaj rajčicu i temeljac. Kuhaj, dodaj grah i tjesteninu. Kuhaj dok ne omekša. Začini i posluži toplo.',
+
 '/images/minestrone.jpg',
 6);
 
