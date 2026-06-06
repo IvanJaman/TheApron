@@ -19,19 +19,20 @@ $recipes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <body>
 
     <nav class="navbar">
-        <div class="logo">The Apron</div>
-        <div class="hamburger" id="hamburger">
-            ☰
-        </div>
-        <div class="nav-links" id="navLinks">
-            <a href="index.php">Početna</a>
-            <?php if (isLoggedIn()): ?>
-                <a href="logout.php">Logout</a>
-            <?php else: ?>
-                <a href="login.php">Login</a>
-            <?php endif; ?>
-        </div>
-    </nav>
+    <a class="logo" href="index.php">The Apron</a>
+    <div class="hamburger" id="hamburger">
+        ☰
+    </div>
+    <div class="nav-links" id="navLinks">
+        <a href="index.php">Početna</a>
+        <a href="favourites.php">Omiljeno</a>
+        <?php if (isLoggedIn()): ?>
+            <a href="logout.php">Odjava</a>
+        <?php else: ?>
+            <a href="login.php">Prijava</a>
+        <?php endif; ?>
+    </div>
+</nav>
 
     <main class="container">
         <h1 class="page-title">Pozdrav, chef <?= $_SESSION["username"] ?>! Što ćemo kuhati danas?</h1>
@@ -48,7 +49,7 @@ $recipes = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </main>
 
     <footer class="footer">
-        <p>© 2026 The Apron. All rights reserved.</p>
+        <p>© 2026 The Apron. Sva prava zadržana.</p>
     </footer>
     <script>
         const hamburger = document.getElementById("hamburger");

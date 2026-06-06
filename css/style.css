@@ -69,6 +69,12 @@ body {
 .logo {
     font-size: 24px;
     font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.logo:visited {
+    color: white;
 }
 
 .hamburger {
@@ -142,6 +148,28 @@ body {
 
 .recipe-content h3 {
     margin-top: 20px;
+}
+
+.recipe-actions {
+    max-width: 1000px;
+    margin: 20px auto 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.favourites-btn {
+    background: #222;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    justify-content: end;
+}
+
+.favourites-btn:hover {
+    background: #444;
 }
 
 .auth-box {
