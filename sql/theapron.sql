@@ -37,17 +37,6 @@ CREATE TABLE favourites (
     UNIQUE(user_id, recipe_id)
 );
 
-CREATE TABLE ratings (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL,
-    recipe_id INT NOT NULL,
-    rating TINYINT NOT NULL CHECK (rating BETWEEN 1 AND 5),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
-    FOREIGN KEY (recipe_id) REFERENCES recipes(id) ON DELETE CASCADE,
-    UNIQUE(user_id, recipe_id)
-);
-
 INSERT INTO categories (name) VALUES
 ('Tjestenina'),
 ('Pizza'),

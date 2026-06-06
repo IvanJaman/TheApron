@@ -28,7 +28,6 @@ $favStmt = $pdo->prepare("
 $favStmt->execute([$userId, $id]);
 
 $isFavourite = $favStmt->fetch();
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -61,7 +60,6 @@ $isFavourite = $favStmt->fetch();
         <div class="recipe-image">
             <img src="/theapron<?= $recipe['image_url'] ?>" alt="<?= htmlspecialchars($recipe['title']) ?>">
         </div>
-
         <div class="recipe-content">
             <h1><?= htmlspecialchars($recipe['title']) ?></h1>
 
