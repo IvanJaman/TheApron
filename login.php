@@ -29,22 +29,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         $_SESSION["user_id"] = $user["id"];
         $_SESSION["username"] = $user["username"];
+        $_SESSION["role"] = $user["role"];   
 
         header("Location: index.php");
         exit;
-
-    } else {
+    }else {
         $error = "Invalid login credentials.";
     }
 }
 ?>
 
 <div class="auth-page">
-
     <h1 class="page-title">Welcome back to The Apron!</h1>
-
     <div class="auth-box">
-
         <h2>Login</h2>
 
         <?php if (!empty($error)) echo "<div class='error'>$error</div>"; ?>
@@ -56,10 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </form>
 
         <a href="register.php">Register</a>
-
     </div>
-
 </div>
-
 </body>
 </html>

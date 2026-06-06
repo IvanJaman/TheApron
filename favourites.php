@@ -33,10 +33,18 @@ $recipes = $stmt->fetchAll(PDO::FETCH_ASSOC);
         ☰
     </div>
     <div class="nav-links" id="navLinks">
+
         <a href="index.php">Početna</a>
+
         <a href="favourites.php">Omiljeno</a>
+
+        <?php if (isLoggedIn() && $_SESSION["role"] === "admin"): ?>
+            <a href="addRecipe.php">Dodaj novi recept</a>
+        <?php endif; ?>
+
         <?php if (isLoggedIn()): ?>
             <a href="logout.php">Odjava</a>
+            
         <?php else: ?>
             <a href="login.php">Prijava</a>
         <?php endif; ?>

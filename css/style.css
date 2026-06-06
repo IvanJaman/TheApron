@@ -155,21 +155,42 @@ body {
     margin: 20px auto 0;
     display: flex;
     justify-content: flex-end;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
-.favourites-btn {
-    background: #222;
-    color: white;
+.favourites-btn,
+.edit-btn,
+.danger-btn {
     border: none;
-    padding: 12px 20px;
+    padding: 12px 18px;
+    margin: 20px 0;
     border-radius: 8px;
     cursor: pointer;
-    margin-bottom: 20px;
-    justify-content: end;
+    font-size: 14px;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.2s;
 }
 
-.favourites-btn:hover {
+.favourites-btn,
+.edit-btn {
+    background: #222;
+    color: white;
+}
+
+.favourites-btn:hover,
+.edit-btn:hover {
     background: #444;
+}
+
+.danger-btn {
+    background: #c0392b;
+    color: white;
+}
+
+.danger-btn:hover {
+    background: #e74c3c;
 }
 
 .auth-box {
@@ -247,6 +268,28 @@ body {
 
 * {
     box-sizing: border-box;
+}
+
+.auth-box textarea,
+.auth-box select {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    font-family: Arial, sans-serif;
+}
+
+.auth-box textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.auth-box select:focus,
+.auth-box textarea:focus {
+    border-color: #333;
 }
 
 @media (max-width: 768px) {

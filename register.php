@@ -28,6 +28,7 @@
 
             $_SESSION["user_id"] = $pdo->lastInsertId();
             $_SESSION["username"] = $username;
+            $_SESSION["role"] = "user";
 
             header("Location: index.php");
             exit;

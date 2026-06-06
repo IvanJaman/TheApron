@@ -28,6 +28,7 @@ $favStmt = $pdo->prepare("
 $favStmt->execute([$userId, $id]);
 
 $isFavourite = $favStmt->fetch();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -45,10 +46,18 @@ $isFavourite = $favStmt->fetch();
         ☰
     </div>
     <div class="nav-links" id="navLinks">
+
         <a href="index.php">Početna</a>
+
         <a href="favourites.php">Omiljeno</a>
+
+        <?php if (isLoggedIn() && $_SESSION["role"] === "admin"): ?>
+            <a href="addRecipe.php">Dodaj novi recept</a>
+        <?php endif; ?>
+
         <?php if (isLoggedIn()): ?>
             <a href="logout.php">Odjava</a>
+            
         <?php else: ?>
             <a href="login.php">Prijava</a>
         <?php endif; ?>
@@ -63,13 +72,13 @@ $isFavourite = $favStmt->fetch();
         <div class="recipe-content">
             <h1><?= htmlspecialchars($recipe['title']) ?></h1>
 
-            <h3>Description</h3>
+            <h3>Opis</h3>
             <p><?= nl2br(htmlspecialchars($recipe['description'])) ?></p>
 
-            <h3>Ingredients</h3>
+            <h3>Sastojci</h3>
             <p><?= nl2br(htmlspecialchars($recipe['ingredients'])) ?></p>
 
-            <h3>Instructions</h3>
+            <h3>Upute</h3>
             <p><?= nl2br(htmlspecialchars($recipe['instructions'])) ?></p>
         </div>
     </div>
@@ -77,6 +86,16 @@ $isFavourite = $favStmt->fetch();
         <button class="favourites-btn">
             <?= $isFavourite ? "Ukloni iz omiljenih" : "Dodaj u omiljene" ?>
         </button>
+
+        <?php if ($_SESSION["role"] === "admin"): ?>
+            <a class="edit-btn" href="editRecipe.php?id=<?= $id ?>">
+                Uredi recept
+            </a>
+        <?php endif; ?>
+
+        <?php if ($_SESSION["role"] === "admin"): ?>
+            <button id="deleteBtn" class="danger-btn">Obriši recept</button>
+        <?php endif; ?>
     </div>
 </main>
 
@@ -118,6 +137,27 @@ document.querySelector(".favourites-btn").addEventListener("click", async () => 
         document.querySelector(".favourites-btn").innerText = "Ukloni iz omiljenih";
     } else {
         document.querySelector(".favourites-btn").innerText = "Dodaj u omiljene";
+    }
+});
+</script>
+
+<script>
+document.getElementById("deleteBtn")?.addEventListener("click", async () => {
+
+    if (!confirm("Obrisati recept?")) return;
+
+    const res = await fetch("api/recipes/delete.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: "id=<?= $id ?>"
+    });
+
+    const data = await res.json();
+
+    if (data.status === "ok") {
+        window.location.href = "index.php";
     }
 });
 </script>
