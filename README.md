@@ -52,7 +52,7 @@ sql/theapron.sql
 
 ---
 
-## 👤 Kreiranje admin korisnika
+## Kreiranje admin korisnika
 
 1. Registriraj običnog korisnika
 2. U phpMyAdmin promijeni role u admin
