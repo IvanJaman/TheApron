@@ -29,7 +29,9 @@ Otvori u pregledniku: http://localhost/TheApron/
 
 ## Postavljanje baze podataka
 
-1. Otvori u pregledniku: http://localhost/phpmyadmin/index.php
+### 1. Otvori phpmyadmin sučelje 
+
+Otvori u pregledniku: http://localhost/phpmyadmin/index.php
 
 ---
 
