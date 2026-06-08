@@ -3,6 +3,8 @@ require_once "../../config/db.php";
 require_once "../../config/auth.php";
 requireAdmin();
 
+header("Content-Type: application/json");
+
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     die("Invalid request");
 }
@@ -21,5 +23,7 @@ $stmt = $pdo->prepare("
 
 $stmt->execute([$title, $description, $ingredients, $instructions, $image_url, $category_id]);
 
-header("Location: ../../index.php");
-exit;
+echo json_encode([
+    "status" => "ok",
+    "message" => "Recipe created"
+]);

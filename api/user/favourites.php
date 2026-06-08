@@ -1,9 +1,9 @@
 <?php
-
 require_once "../../config/db.php";
 require_once "../../config/auth.php";
-
 requireLogin();
+
+header("Content-Type: application/json");
 
 $userId = $_SESSION["user_id"];
 $recipeId = $_POST["recipe_id"];
