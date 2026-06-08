@@ -23,14 +23,13 @@ C:\xampp\htdocs\TheApron
 
 ### 3. Pokretanje aplikacije
 
-Otvori u pregledniku:
-http://localhost/TheApron/
+Otvori u pregledniku: http://localhost/TheApron/
 
 ---
 
 ## Postavljanje baze podataka
 
-### 1. Otvori http://localhost/phpMyAdmin
+1. Otvori u pregledniku: http://localhost/phpmyadmin/index.php
 
 ---
 

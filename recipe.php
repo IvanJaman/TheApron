@@ -78,7 +78,7 @@ $isFavourite = $favStmt->fetch();
             <h3>Sastojci</h3>
             <p><?= nl2br(htmlspecialchars($recipe['ingredients'])) ?></p>
 
-            <h3>Upute</h3>
+            <h3>Upute za pripremu</h3>
             <p><?= nl2br(htmlspecialchars($recipe['instructions'])) ?></p>
         </div>
     </div>

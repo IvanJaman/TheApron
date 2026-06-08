@@ -143,10 +143,12 @@ INSERT INTO recipes (title, description, ingredients, instructions, image_url, c
 '/images/minestrone.jpg',
 6);
 
-INSERT INTO users (username, email, password, role)
-VALUES (
-'admin',
-'admin@apron.com',
-'$2y$10$examplehashedpassword',
-'admin'
-);
+/*
+PRIMJER DODAVANJA JELA:
+Naziv recepta: Pita zeljanica
+Opis: Tradicionalna pita od tankih kora punjena blitvom ili špinatom, sirom i jajima. Hrskava izvana i sočna iznutra, često se poslužuje kao glavno jelo ili lagana večera.
+Sastojci: kore za pitu, blitva ili špinat, svježi sir, jaja, jogurt ili kiselo vrhnje, ulje ili maslac, sol, papar.
+Priprema: Nasjeckaj zelje i pomiješaj ga sa sirom, jajima i začinima. Kore premaži uljem, rasporedi nadjev i slaži ili rolaj u lim. Peci na 180°C oko 35–45 minuta dok pita ne postane zlatno-smeđa.
+Slika: /images/pita_zeljanica.jpg
+Kategorija: tjestenina
+*/

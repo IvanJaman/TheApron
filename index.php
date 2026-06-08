@@ -6,6 +6,29 @@ requireLogin();
 $stmt = $pdo->prepare("SELECT id, title, image_url FROM recipes");
 $stmt->execute();
 $recipes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+$catStmt = $pdo->query("SELECT id, name FROM categories");
+$categories = $catStmt->fetchAll(PDO::FETCH_ASSOC);
+
+$categoryFilter = $_GET["category"] ?? "";
+$search = $_GET["search"] ?? "";
+
+$sql = "SELECT id, title, image_url FROM recipes WHERE 1=1";
+$params = [];
+
+if (!empty($categoryFilter)) {
+    $sql .= " AND category_id = ?";
+    $params[] = $categoryFilter;
+}
+
+if (!empty($search)) {
+    $sql .= " AND title LIKE ?";
+    $params[] = "%$search%";
+}
+
+$stmt = $pdo->prepare($sql);
+$stmt->execute($params);
+$recipes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -24,18 +47,13 @@ $recipes = $stmt->fetchAll(PDO::FETCH_ASSOC);
             ☰
         </div>
         <div class="nav-links" id="navLinks">
-
             <a href="index.php">Početna</a>
-
             <a href="favourites.php">Omiljeno</a>
-
             <?php if (isLoggedIn() && $_SESSION["role"] === "admin"): ?>
                 <a href="addRecipe.php">Dodaj novi recept</a>
             <?php endif; ?>
-
             <?php if (isLoggedIn()): ?>
                 <a href="logout.php">Odjava</a>
-                
             <?php else: ?>
                 <a href="login.php">Prijava</a>
             <?php endif; ?>
@@ -44,6 +62,28 @@ $recipes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     <main class="container">
         <h1 class="page-title">Pozdrav, chef <?= $_SESSION["username"] ?>! Što ćemo kuhati danas?</h1>
+        
+        <form method="GET" class="filters">
+            <input
+                type="text"
+                name="search"
+                placeholder="Pretraži recepte..."
+                value="<?= htmlspecialchars($search) ?>"
+            >
+            <select name="category">
+                <option value="">Sve kategorije</option>
+
+                <?php foreach ($categories as $cat): ?>
+                    <option value="<?= $cat["id"] ?>"
+                        <?= $categoryFilter == $cat["id"] ? "selected" : "" ?>>
+                        <?= htmlspecialchars($cat["name"]) ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+            <button type="submit">Filtriraj</button>
+            <a href="index.php" class="reset-btn">Obriši filtere</a>
+        </form>
+
         <div class="grid">
             <?php foreach ($recipes as $recipe): ?>
                 <a class="card" href="recipe.php?id=<?= $recipe['id'] ?>">

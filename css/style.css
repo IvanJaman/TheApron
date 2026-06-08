@@ -20,6 +20,58 @@ body {
     padding: 10px;
 }
 
+.filters {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.filters input,
+.filters select {
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    outline: none;
+}
+
+.filters input:focus,
+.filters select:focus {
+    border-color: #333;
+}
+
+.filters button {
+    padding: 10px 16px;
+    background: #222;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.filters button:hover {
+    background: #444;
+}
+
+.reset-btn {
+    padding: 10px 16px;
+    background: #777;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+}
+
+.reset-btn:hover {
+    background: #999;
+}
+
 .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
